@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./components/Home";
+import HomeScreen from "./screens/HomeScreen";
 import About from "./components/About";
 import Header from "./components/Header";
 
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomeScreen />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
