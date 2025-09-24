@@ -16,6 +16,7 @@ const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
 
   if (product) {
+    // console.log('call from frontend');
     return res.json(product);
   } else {
     res.status(404);
