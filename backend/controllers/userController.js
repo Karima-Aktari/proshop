@@ -6,7 +6,7 @@ import JWT from "jsonwebtoken";
 //@route        POST /api/users/login
 //@access       Public
 const authUser = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
@@ -14,7 +14,7 @@ const authUser = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     //Creating Token
     const token = JWT.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "30d",
+      expiresIn: "90d",
     });
 
     //Set JWT as HTTP-Only cookie
@@ -22,7 +22,7 @@ const authUser = asyncHandler(async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       sameSite: "strict",
-      maxAge: 30 * 24 * 60 * 60 * 1000, // 90 Days
+      maxAge: 90 * 24 * 60 * 60 * 1000, // 90 Days
     });
 
     res.json({
@@ -43,14 +43,44 @@ const authUser = asyncHandler(async (req, res) => {
 //@route       POST /api/users/
 //@access      Public
 const registerUser = asyncHandler(async (req, res) => {
-  res.send("register user");
+  const { name, email, password } = req.body;
+
+  const userExists = await User.findOne({ email });
+
+  if (userExists) {
+    res.status(400);
+    throw new Error("User already exist");
+  }
+
+  const user = await User.create({
+    name,
+    email,
+    password,
+  });
+
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data");
+  }
 });
 
 //@description Logout user /clear cookie
 //@route       POST /api/users/logout
 //@access      Private
 const logoutUser = asyncHandler(async (req, res) => {
-  res.send("logout user");
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+
+  res.status(200).json({ message: "Logged out successfully" });
 });
 
 //@description Get user profile
