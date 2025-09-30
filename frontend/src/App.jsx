@@ -3,6 +3,7 @@ import HomeScreen from "./screens/HomeScreen";
 import AppLayout from "./components/AppLayout";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Route index={true} path="/" element={<HomeScreen />} />
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart" element={<CartScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
           </Route>
         </Routes>
       </BrowserRouter>
