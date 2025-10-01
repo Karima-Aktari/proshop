@@ -20,6 +20,7 @@ const authUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
     });
+    // console.log("login successfully");
   } else {
     res.status(401);
     throw new Error("invalid email or password");
@@ -54,8 +55,10 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
     });
+    // console.log("user created successfully");
   } else {
     res.status(400);
+    console.log("user not created");
     throw new Error("Invalid user data");
   }
 });
@@ -70,6 +73,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   });
 
   res.status(200).json({ message: "Logged out successfully" });
+  // console.log("loguot successfully");
 });
 
 //@description Get user profile
