@@ -6,6 +6,7 @@ import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingScreen from "./screens/ShippingScreen";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -18,7 +19,10 @@ function App() {
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
-            <Route path="/shipping" element={<ShippingScreen />} />
+
+            <Route path="" element={<PrivateRoute />}>
+              <Route path="/shipping" element={<ShippingScreen />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
