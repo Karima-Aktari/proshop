@@ -1,0 +1,45 @@
+// {
+//   "taxtPrice": 13.5,
+//   "shippingPrice": 100,
+//   "totalPrice": 203.49,
+//   "orderItems": [
+//     {
+//       "product": "68ce21f75e8c55d2295a053e",
+//       "name": "Airpods Wireless Bluetooth Headphones",
+//       "image": "/images/airpods.jpg",
+//       "price": 89.99,
+//       "qty": 1
+//     }
+//   ],
+//   "user": "68ce21f75e8c55d2295a0540",
+//   "shippingAddress": {
+//     "address": "Rajshahi",
+//     "city": "Rajshahi",
+//     "postalCode": "6201",
+//     "country": "Bangladesh"
+//   },
+//   "paymentMethod": "PayPal"
+// },
+
+{
+  "orderItems": [
+    {
+      "name": "Airpods Wireless Bluetooth Headphones",
+      "qty": "10",
+      "image": "/images/airpods.jpg",
+      "price": 89.99,
+      "product": "68e3c7b7a29f0f1933e51056"
+    }
+  ],
+  "shippingAddress": {
+    "address": "Rajshahi",
+    "city": "Rajshahi",
+    "postalCode": "6201",
+    "country": "Bangladesh"
+  },
+  "paymentMethod": "Paypal",
+  "itemsPrice": "649.98",
+  "shippingPrice": "0.00",
+  "taxPrice": "97.50",
+  "totalPrice": "747.48"
+}

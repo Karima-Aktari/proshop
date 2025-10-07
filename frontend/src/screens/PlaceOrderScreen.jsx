@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Col, ListGroup, Row, Image, Card, Button } from "react-bootstrap";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
-import { Col, ListGroup, Row, Image, Card, Button } from "react-bootstrap";
+
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 

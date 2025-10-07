@@ -1,0 +1,51 @@
+{
+  "orderItems": [
+    {
+      "": "68ce21f75e8c55d2295a0546",
+      "user": "68ce21f75e8c55d2295a053e",
+      "name": "Logitech G-Series Gaming Mouse",
+      "image": "/images/mouse.jpg",
+      "brand": "Logitech",
+      "category": "Electronics",
+      "description": "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
+      "rating": 3.5,
+      "numReviews": 10,
+      "price": 49.99,
+      "countInStock": 7,
+      "reviews": [],
+      "__v": 0,
+      "createdAt": "2025-09-20T03:39:35.096Z",
+      "updatedAt": "2025-09-20T03:39:35.096Z",
+      "qty": 1
+    },
+    {
+      "_id": "68ce21f75e8c55d2295a0543",
+      "user": "68ce21f75e8c55d2295a053e",
+      "name": "iPhone 11 Pro 256GB Memory",
+      "image": "/images/phone.jpg",
+      "brand": "Apple",
+      "category": "Electronics",
+      "description": "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
+      "rating": 4,
+      "numReviews": 8,
+      "price": 599.99,
+      "countInStock": 7,
+      "reviews": [],
+      "__v": 0,
+      "createdAt": "2025-09-20T03:39:35.096Z",
+      "updatedAt": "2025-09-20T03:39:35.096Z",
+      "qty": 1
+    }
+  ],
+  "shippingAddress": {
+    "address": "Rajshahi",
+    "city": "Rajshahi",
+    "postalCode": "6201",
+    "country": "Bangladesh"
+  },
+  "paymentMethod": "Paypal",
+  "itemsPrice": "649.98",
+  "shippingPrice": "0.00",
+  "taxPrice": "97.50",
+  "totalPrice": "747.48"
+}
