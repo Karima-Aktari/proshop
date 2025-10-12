@@ -31,12 +31,18 @@ function OrderListScreen() {
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{order.user && order.user.name}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
+                <td>{order.user ? order.user.name : "Unknown User"}</td>
+                <td>
+                  {order.createdAt ? order.createdAt.substring(0, 10) : "N/A"}
+                </td>
                 <td>${order.totalPrice}</td>
                 <td>
                   {order.isPaid ? (
-                    order.paidAt.substring(0, 10)
+                    order.paidAt ? (
+                      order.paidAt.substring(0, 10)
+                    ) : (
+                      "Paid"
+                    )
                   ) : (
                     <FaTimes style={{ color: "red" }} />
                   )}
@@ -44,7 +50,11 @@ function OrderListScreen() {
 
                 <td>
                   {order.isDelivered ? (
-                    order.deliveredAt.substring(0, 10)
+                    order.deliveredAt ? (
+                      order.deliveredAt.substring(0, 10)
+                    ) : (
+                      "Delivered"
+                    )
                   ) : (
                     <FaTimes style={{ color: "red" }} />
                   )}
