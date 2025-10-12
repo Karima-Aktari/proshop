@@ -138,7 +138,7 @@ function ProfileScreen() {
                   </td>
                   <td>
                     {order.isDelivered ? (
-                      order.delivereAt.substring(0, 10)
+                      order?.delivereAt?.substring(0, 10)
                     ) : (
                       <FaTimes style={{ color: "red" }} />
                     )}
