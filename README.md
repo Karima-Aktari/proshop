@@ -1,1 +1,1 @@
-#### PROSHOP: An E-commerce mern project
+# PROSHOP: An E-commerce mern project
