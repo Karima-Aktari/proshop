@@ -1,4 +1,4 @@
-// import { deleteProduct } from "../../../backend/controllers/productController";
+import { deleteProduct } from "../../../backend/controllers/productController";
 import { PRODUCTS_URL, UPLOAD_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
@@ -40,12 +40,12 @@ export const productsApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    // deleteProduct: builder.mutation({
-    //   query: (productId) => ({
-    //     url: `${PRODUCTS_URL}/${productId}`,
-    //     method: "DELETE",
-    //   }),
-    // }),
+    deleteProduct: builder.mutation({
+      query: (productId) => ({
+        url: `${PRODUCTS_URL}/${productId}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -55,5 +55,5 @@ export const {
   useCreateProductMutation,
   useUpdateProductMutation,
   useUploadProductImageMutation,
-  // useDeleteProductMutation,
+  useDeleteProductMutation,
 } = productsApiSlice;
