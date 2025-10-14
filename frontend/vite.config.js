@@ -9,7 +9,13 @@ export default defineConfig({
       "/api": {
         target: "http://localhost:5000",
         changeOrigin: true,
-      }, // backend server
+      },
+      "/uploads": "http://localhost:5000", // backend server
     },
+
+    // proxy: {
+    //   "/api": "http://localhost:5000",
+    //   "/uploads": "http://localhost:5000",
+    // },
   },
 });

@@ -7,6 +7,7 @@ import Loader from "../../components/Loader";
 import {
   useGetProductsQuery,
   useCreateProductMutation,
+  // useDeleteProductMutation,
 } from "../../slices/productsApiSlice";
 
 function ProductListScreen() {
@@ -16,9 +17,17 @@ function ProductListScreen() {
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
 
-  const deletehandler = (id) => {
-    console.log("delete", id);
-  };
+  // const [deleteProduct, { isLoading: loadingDelete }] =
+  //   useDeleteProductMutation();
+
+  // const deletehandler = async (id) => {
+  //   if (window.confirm("Are you sure")) {
+  //     try {
+  //       await deleteProduct(id);
+  //       refetch();
+  //     } catch (err) {}
+  //   }
+  // };
 
   const createProductHandler = async () => {
     if (window.confirm("Are you sure you want to create a new product?")) {

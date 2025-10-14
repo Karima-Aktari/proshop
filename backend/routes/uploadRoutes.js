@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
   },
 });
 
-function checkFileType(file, cb) {
+function checkFileType(req, file, cb) {
   const filetypes = /jpg|jpeg|png/;
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   const mimetype = filetypes.test(file.mimetype);
@@ -28,12 +28,14 @@ function checkFileType(file, cb) {
 
 const upload = multer({
   storage,
+  // checkFileType,
 });
 
 router.post("/", upload.single("image"), (req, res) => {
   res.send({
     message: "Image Uploaded",
-    image: `http://localhost:5000/${req.file.path}`,
+    image: `/uploads/${path.basename(req.file.path)}`,
+    // image: `/${req.file.path.replace(/\\/g, '/')}`, // Another way to solve path formatting issue.
   });
 });
 
