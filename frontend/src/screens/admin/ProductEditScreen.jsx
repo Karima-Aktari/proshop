@@ -135,6 +135,7 @@ function ProductEditScreen() {
                 label="Choose file"
                 onChange={uploadFileHandler}
               ></Form.Control>
+              {loadingUpload && <Loader />}
             </Form.Group>
 
             <Form.Group controlId="brand" className="my-2">
