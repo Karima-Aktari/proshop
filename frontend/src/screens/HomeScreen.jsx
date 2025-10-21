@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // import { useEffect, useState } from "react";
 // import axios from "axios";
 import Product from "../components/Product";
@@ -32,6 +32,12 @@ function HomeScreen() {
 
   return (
     <>
+      {keyword && (
+        <Link to="/" className="btn btn-light mb--4">
+          Go Back
+        </Link>
+      )}
+
       {isLoading ? (
         <Loader />
       ) : error ? (
