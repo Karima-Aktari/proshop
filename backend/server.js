@@ -38,12 +38,18 @@ app.get("/api/config/paypal", (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
 
-// ✅ Handle uploads folder static
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// // ✅ Handle uploads folder static
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+// code by other
+// //Make uploads folder static
+const __dirname = path.resolve(); //Set __dirname to current directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // ✅ Serve Frontend (Vite build)
+
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.resolve(__dirname, "../frontend/dist");
   app.use(express.static(frontendPath));
@@ -65,9 +71,16 @@ app.use(errorHandler);
 // ✅ Start Server
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
+// .
+// .
+// .
+// .
+// .
+// .
+
 // import path from "path";
 // import express from "express";
-// import { fileURLToPath } from "url";
+// // import { fileURLToPath } from "url";
 // import dotenv from "dotenv";
 // import cookieParser from "cookie-parser";
 // dotenv.config();
