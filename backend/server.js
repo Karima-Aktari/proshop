@@ -39,14 +39,14 @@ app.get("/api/config/paypal", (req, res) =>
 );
 
 // // ✅ Handle uploads folder static
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // code by other
 // //Make uploads folder static
-const __dirname = path.resolve(); //Set __dirname to current directory
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+// const __dirname = path.resolve(); //Set __dirname to current directory
+// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // ✅ Serve Frontend (Vite build)
 
