@@ -151,7 +151,6 @@ import express from "express";
 // import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-dotenv.config();
 import connectDB from "./config/db.js";
 import cors from "cors";
 import productRoutes from "./routes/productRoutes.js";
@@ -160,6 +159,8 @@ import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 const port = process.env.PORT || 5000;
+
+dotenv.config();
 
 connectDB(); //Connect to MongoDB
 
@@ -187,22 +188,19 @@ app.get("/api/config/paypal", (req, res) =>
 );
 
 //Make uploads folder static
-const __dirname = path.resolve(); //Set __dirname to current directory
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-
-// ✅ Serve Frontend (Vite build)
-
 if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.resolve(__dirname, "../frontend/dist");
-  app.use(express.static(frontendPath));
+  const __dirname = path.resolve();
+  app.use("/uploads", express.static("/var/data/uploads"));
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  // 👇 Express v5 fallback (replaces app.get("/*"))
-  app.use((req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-  });
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
 } else {
+  const __dirname = path.resolve();
+  app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
   app.get("/", (req, res) => {
-    res.send("API is running...");
+    res.send("API is running....");
   });
 }
 
