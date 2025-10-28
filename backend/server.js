@@ -193,9 +193,10 @@ if (process.env.NODE_ENV === "production") {
   app.use("/uploads", express.static("/var/data/uploads"));
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-  );
+  // ✅ Express v5 fallback for SPA (Vite dist folder)
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  });
 } else {
   const __dirname = path.resolve();
   app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
