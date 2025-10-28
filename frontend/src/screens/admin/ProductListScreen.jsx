@@ -3,7 +3,7 @@ import { Table, Button, Row, Col } from "react-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-// import Paginate from "../../components/Paginate";
+import Paginate from "../../components/Paginate";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
@@ -108,11 +108,12 @@ function ProductListScreen() {
               ))}
             </tbody>
           </Table>
-          {/* <Paginate
+          <Paginate
             pages={data.pages}
             page={data.page}
+            isAdmin={true}
             keyword={keyword ? keyword : ""}
-          /> */}
+          />
         </>
       )}
     </>
